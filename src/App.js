@@ -6,6 +6,7 @@ import Navbar from "./component/Navbar";
 import News from "./component/News";
 
 function App() {
+  const apiKey='ffdf10ca437a44f9b8f5c5f7a6dd2473'
   const [progress, setProgress] = useState(0);
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}
                 key="general"
                 country="in"
                 pageSize={18}
