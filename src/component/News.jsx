@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-
+import NewsCard from './NewsCard'
 
 const News = (props) => {
     const [articles,setArticles]=useState([])
@@ -25,7 +25,32 @@ const News = (props) => {
         updateNews();
       },[])
   return (
-    <>News</>
+    <>News
+    <div className="container my-3">
+
+    <h1 style={{marginTop:'90px'}} className="text-center">NewsViewer -Top {(props.category).charAt(0).toUpperCase()+(props.category).slice(1)} Headlines</h1>
+       
+    <div className="container">
+        <div className="row">
+        {articles.map((element) => {
+              return (
+                <div key={element.url} className="col-md-4">
+                  <NewsCard
+                    author={element.author}
+                    date={element.publishedAt}
+                    title={element.title ? element.title : ""}
+                    description={element.description ? element.description : ""}
+                    imgUrl={element.urlToImage}
+                    newsUrl={element.url}
+                  />
+                </div>
+      
+              );
+            })}
+          </div>
+          </div>
+    </div>
+    </>
   )
 }
 

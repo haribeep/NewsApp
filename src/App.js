@@ -36,6 +36,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}  
                 key="business"
                 country="in"
                 pageSize={18}
@@ -50,6 +51,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}  
                 key="entertainment"
                 country="in"
                 pageSize={18}
@@ -64,6 +66,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}  
                 key="general1"
                 country="in"
                 pageSize={18}
@@ -78,6 +81,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}  
                 key="health"
                 country="in"
                 pageSize={18}
@@ -92,6 +96,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}  
                 key="science"
                 country="in"
                 pageSize={18}
@@ -106,6 +111,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}  
                 key="sports"
                 country="in"
                 pageSize={18}
@@ -120,6 +126,7 @@ function App() {
             element={
               <News
                 setProgress={setProgress}
+                apiKey={apiKey}  
                 key="technology"
                 country="in"
                 pageSize={18}
