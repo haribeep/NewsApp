@@ -6,6 +6,7 @@ const News = (props) => {
     const [articles,setArticles]=useState([])
     const [loading,setLoading]=useState(false)
     const [totalResults,setTotalResults]=useState(0)
+    const [page,setPage]=useState(1)
 
     const  updateNews=async()=> {
         props.setProgress(10);
@@ -25,12 +26,26 @@ const News = (props) => {
         document.title=`${(props.category).charAt(0).toUpperCase()+(props.category).slice(1)} - NewsZilla`;
         updateNews();
       },[])
+      const fetchMoreData = async() => {
+    
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
+        setPage(page+1)
+        setLoading(true)
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        setArticles(articles.concat(parsedData.articles))
+        setTotalResults(parsedData.totalResults)
+        setLoading(false)
+      };
   return (
     <>News
     <div className="container my-3">
 
     <h1 style={{marginTop:'90px'}} className="text-center">NewsViewer -Top {(props.category).charAt(0).toUpperCase()+(props.category).slice(1)} Headlines</h1>
     <InfiniteScroll
+    dataLength={articles.length}
+    next={fetchMoreData}
+    hasMore={articles.length !== totalResults}
         > 
     <div className="container">
         <div className="row">
