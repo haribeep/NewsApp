@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import NewsCard from './NewsCard'
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props) => {
     const [articles,setArticles]=useState([])
@@ -29,7 +30,8 @@ const News = (props) => {
     <div className="container my-3">
 
     <h1 style={{marginTop:'90px'}} className="text-center">NewsViewer -Top {(props.category).charAt(0).toUpperCase()+(props.category).slice(1)} Headlines</h1>
-       
+    <InfiniteScroll
+        > 
     <div className="container">
         <div className="row">
         {articles.map((element) => {
@@ -49,6 +51,7 @@ const News = (props) => {
             })}
           </div>
           </div>
+          </InfiniteScroll>
     </div>
     </>
   )
