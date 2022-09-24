@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import NewsCard from './NewsCard'
 import InfiniteScroll from "react-infinite-scroll-component";
+import LoadingSpinner from './LoadingSpinner'
+import LiveWeather from './liveweather/Liveweather';
 
 const News = (props) => {
     const [articles,setArticles]=useState([])
@@ -39,13 +41,16 @@ const News = (props) => {
       };
   return (
     <>News
+   
     <div className="container my-3">
+    <LiveWeather/>
 
     <h1 style={{marginTop:'90px'}} className="text-center">NewsViewer -Top {(props.category).charAt(0).toUpperCase()+(props.category).slice(1)} Headlines</h1>
     <InfiniteScroll
     dataLength={articles.length}
     next={fetchMoreData}
     hasMore={articles.length !== totalResults}
+    loader={(loading)&&<LoadingSpinner/>}
         > 
     <div className="container">
         <div className="row">
