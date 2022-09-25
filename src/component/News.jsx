@@ -3,12 +3,31 @@ import NewsCard from './NewsCard'
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingSpinner from './LoadingSpinner'
 import LiveWeather from './liveweather/Liveweather';
+import {retrieveNewsList} from '../slice/news'
+import {useDispatch,useSelector} from 'react-redux'
 
 const News = (props) => {
     const [articles,setArticles]=useState([])
     const [loading,setLoading]=useState(false)
     const [totalResults,setTotalResults]=useState(0)
     const [page,setPage]=useState(1)
+
+    const { newsList } = useSelector((state)=> state.news)
+
+    console.log("newslist",newsList)
+
+    const query = {
+      apiKey:'ffdf10ca437a44f9b8f5c5f7a6dd2473'
+    }
+
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+      retrieveNewsList()
+
+    },[])
+
+
 
     const  updateNews=async()=> {
         props.setProgress(10);
