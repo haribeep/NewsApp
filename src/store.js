@@ -5,6 +5,8 @@ const reducer = {
     news:newsReducer
 }
 
+//**********Setting up global store using configureStore api ***********//
+
 const store = configureStore({
     reducer:reducer
 })

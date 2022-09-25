@@ -10,7 +10,7 @@ function App() {
   const [progress, setProgress] = useState(0);
   return (
     <div className="App">
-      App
+{/* **********React Routing setup here for different category of News************** */}
       <Router>
         <Navbar />
         <LoadingBar height={3} color="#f11946" progress={progress} />
