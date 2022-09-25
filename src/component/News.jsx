@@ -43,7 +43,7 @@ const News = (props) => {
   useEffect(() => {
     document.title = `${
       props.category.charAt(0).toUpperCase() + props.category.slice(1)
-    } - NewsZilla`;
+    } - NewsViewer`;
     updateNews();
   }, []);
   const fetchMoreData = async () => {
