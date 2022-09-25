@@ -23,7 +23,7 @@ const News = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    retrieveNewsList();
+    dispatch(retrieveNewsList()) 
   }, []);
 
   const updateNews = async () => {
